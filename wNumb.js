@@ -85,7 +85,7 @@ var
 		}
 
 		// Reduce the number of decimals to the specified option.
-		if ( decimals ) {
+		if ( decimals !== false ) {
 			input = toFixed( input, decimals );
 		}
 
@@ -248,14 +248,18 @@ var
 
 			// Floating points in JS are stable up to 7 decimals.
 			} else if ( optionName === 'decimals' ) {
-				if ( optionValue > 0 && optionValue < 8 ) {
+				if ( optionValue >= 0 && optionValue < 8 ) {
 					filteredOptions[optionName] = optionValue;
+				} else {
+					throw new Error(optionName);
 				}
 
 			// These options, when provided, must be functions.
 			} else if ( optionName === 'encoder' || optionName === 'decoder' || optionName === 'edit' || optionName === 'undo' ) {
 				if ( typeof optionValue === 'function' ) {
 					filteredOptions[optionName] = optionValue;
+				} else {
+					throw new Error(optionName);
 				}
 
 			// Other options are strings.
@@ -263,6 +267,8 @@ var
 
 				if ( typeof optionValue === 'string' ) {
 					filteredOptions[optionName] = optionValue;
+				} else {
+					throw new Error(optionName);
 				}
 			}
 		}

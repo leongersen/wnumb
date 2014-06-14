@@ -39,6 +39,15 @@
 			equal ( Tester.from ( '-79?900_041' ), -79900.041 );
 		});
 
+		test( "Testing 0 decimals", function(){
+
+			var Tester = wNumb({
+				decimals: 0
+			});
+
+			equal ( Tester.to ( -50.999845 ), '-51' );			
+		});
+
 		test( "Testing mark and thousand with longer strings", function(){
 
 			var Tester = wNumb({
@@ -131,7 +140,7 @@
 		test( "Testing edit, undo", function(){
 
 			var Tester = wNumb({
-				edit: function( value, originalValue ){				
+				edit: function( value, originalValue ){
 					if ( originalValue > 100000 ) {
 						return value + 'm';
 					} else if ( originalValue > 1000 ) {
@@ -147,7 +156,7 @@
 
 			equal ( Tester.to ( 15000 ), '15000k' );
 			equal ( Tester.from ( '15000k' ), 15000 );
-			
+
 			equal ( Tester.to ( 180 ), '180' );
 			equal ( Tester.from ( '180' ), 180 );
 

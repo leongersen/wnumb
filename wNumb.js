@@ -204,8 +204,16 @@ var
 		// Add the number
 		output += input;
 
+		// Trim all non-numeric characters (allow '.' and '-');
+		output = output.replace(/[^0-9\.\-.]/g, '');
+
+		// The value contains no parse-able number.
+		if ( output === '' ) {
+			return false;
+		}
+
 		// Covert to number.
-		output = Number(output.replace(/[^0-9\.\-.]/g, ''));
+		output = Number(output);
 
 		// Run the user-specified post-decoder.
 		if ( decoder ) {

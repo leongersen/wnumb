@@ -245,10 +245,10 @@ var
 			if ( optionValue === undefined ) {
 
 				// Only default if negativeBefore isn't set.
-				if ( optionName === 'negative' && !filteredOptions['negativeBefore'] ) {
+				if ( optionName === 'negative' && !filteredOptions.negativeBefore ) {
 					filteredOptions[optionName] = '-';
 				// Don't set a default for mark when 'thousand' is set.
-				} else if ( optionName === 'mark' && filteredOptions['thousand'] !== '.' ) {
+				} else if ( optionName === 'mark' && filteredOptions.thousand !== '.' ) {
 					filteredOptions[optionName] = '.';
 				} else {
 					filteredOptions[optionName] = false;
@@ -319,17 +319,17 @@ var
 		options = validate(options);
 
 		// Call 'formatTo' with proper arguments.
-		this['to'] = function ( input ) {
+		this.to = function ( input ) {
 			return passAll(options, formatTo, input);
 		};
 
 		// Call 'formatFrom' with proper arguments.
-		this['from'] = function ( input ) {
+		this.from = function ( input ) {
 			return passAll(options, formatFrom, input);
 		};
 	}
 
 	/** @export */
-	window['wNumb'] = wNumb;
+	window.wNumb = wNumb;
 
 }());

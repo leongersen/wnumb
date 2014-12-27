@@ -73,7 +73,7 @@ var
 
 		// Rounding away decimals might cause a value of -0
 		// when using very small ranges. Remove those cases.
-		if ( decimals && parseFloat(input.toFixed(decimals)) === 0 ) {
+		if ( decimals !== false && parseFloat(input.toFixed(decimals)) === 0 ) {
 			input = 0;
 		}
 

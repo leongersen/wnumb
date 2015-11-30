@@ -1,14 +1,14 @@
 {
   "name": "wnumb",
-  "version": "0.0.0",
-  "description": "wnumb",
+  "version": "1.0.2",
+  "description": "wNumb - JavaScript Number & Money formatting",
   "main": "wNumb.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/leongersen/wnumb.git"
   },
   "author": "leongersen",
-  "license": "BSD-2-Clause",
+  "license": "WTFPL",
   "bugs": {
     "url": "https://github.com/leongersen/wnumb/issues"
   }

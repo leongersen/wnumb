@@ -13,7 +13,7 @@
     } else {
 
         // Browser globals
-        window.noUiSlider = factory();
+        window.wNumb = factory();
     }
 
 }(function(){

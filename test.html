@@ -45,8 +45,23 @@
 				decimals: 0
 			});
 
-			equal ( Tester.to ( -50.999845 ), '-51' );			
+			equal ( Tester.to ( -50.999845 ), '-51' );
 			equal ( Tester.to ( -0.0000001 ), '0' );
+		});
+
+		test( "Testing rounding", function(){
+
+			var Tester = wNumb({
+				decimals: 2
+			});
+
+			equal ( Tester.to ( 8.905 ), '8.91' );
+			equal ( Tester.to ( 8.9049999 ), '8.90' );
+			equal ( Tester.to ( 8.9045 ), '8.90' );
+			equal ( Tester.to ( 8.9044 ), '8.90' );
+			equal ( Tester.to ( 8.9 ), '8.90' );
+			equal ( Tester.to ( 1.275 ), '1.28' );
+			equal ( Tester.to ( 1.27499 ), '1.27' );
 		});
 
 		test( "Testing mark and thousand with longer strings", function(){
@@ -65,11 +80,11 @@
 
 		});
 
-		test( "Testing prefix and postfix", function(){
+		test( "Testing prefix and suffix", function(){
 
 			var Tester = wNumb({
 				prefix: '$',
-				postfix: ' p.p.',
+				suffix: ' p.p.',
 				decimals: 5
 			});
 
@@ -87,6 +102,13 @@
 			equal ( Tester.from ( '1500 ' ), 1500 );
 			equal ( Tester.from ( '  1500 ' ), 1500 );
 			equal ( Tester.from ( ' 1.50.0 ' ), false );
+
+			var Tester2 = wNumb({
+				postfix: ' postfix!',
+				decimals: 1
+			});
+
+			equal ( Tester2.to ( 1 ), '1.0 postfix!' );
 		});
 
 		test( "Testing prefix and with negativeBefore", function(){

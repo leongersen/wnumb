@@ -1,8 +1,8 @@
 {
   "name": "wnumb",
   "main": "wNumb.js",
-  "version": "1.0.4",
-  "homepage": "http://refreshless.com/wnumb/",
+  "version": "1.1.0",
+  "homepage": "https://refreshless.com/wnumb/",
   "description": "wNumb - JavaScript Number & Money formatting",
   "keywords": [
     "javascript",

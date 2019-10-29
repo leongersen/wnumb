@@ -1,6 +1,6 @@
 {
   "name": "wnumb",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "wNumb - JavaScript Number & Money formatting",
   "main": "wNumb.js",
   "repository": {
@@ -8,8 +8,21 @@
     "url": "git://github.com/leongersen/wnumb.git"
   },
   "author": "leongersen",
-  "license": "WTFPL",
+  "license": "MIT",
+  "scripts": {
+    "format": "prettier wNumb.js --write --print-width=120",
+    "minify": "uglifyjs wNumb.js --compress --mangle --output wNumb.min.js",
+    "build": "npm run format && npm run minify"
+  },
+  "files": [
+    "wNumb.js",
+    "wNumb.min.js"
+  ],
   "bugs": {
     "url": "https://github.com/leongersen/wnumb/issues"
+  },
+  "devDependencies": {
+    "prettier": "^1.18.2",
+    "uglify-js": "^3.6.5"
   }
 }
